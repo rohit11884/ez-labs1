@@ -1,0 +1,261 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 28 40% 92%;
+    --foreground: 215 25% 20%;
+
+    --card: 30 35% 96%;
+    --card-foreground: 215 25% 20%;
+
+    --popover: 30 35% 96%;
+    --popover-foreground: 215 25% 20%;
+
+    --primary: 15 85% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 15 85% 70%;
+
+    --secondary: 215 50% 25%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 28 30% 88%;
+    --muted-foreground: 215 20% 40%;
+
+    --accent: 15 85% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 28 25% 85%;
+    --input: 28 25% 90%;
+    --ring: 15 85% 60%;
+
+    --radius: 0.75rem;
+
+    /* Varnan specific colors */
+    --coral: 15 85% 60%;
+    --navy: 215 50% 25%;
+    --cream: 28 40% 92%;
+    --cream-dark: 28 30% 88%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(15 85% 60%), hsl(15 85% 70%));
+    --gradient-subtle: linear-gradient(180deg, hsl(28 40% 92%), hsl(28 30% 90%));
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px hsl(15 85% 60% / 0.08);
+    --shadow-md: 0 4px 16px hsl(15 85% 60% / 0.12);
+    --shadow-lg: 0 8px 24px hsl(15 85% 60% / 0.15);
+    --shadow-xl: 0 12px 40px hsl(15 85% 60% / 0.2);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    --background: 215 25% 15%;
+    --foreground: 28 40% 92%;
+
+    --card: 215 25% 18%;
+    --card-foreground: 28 40% 92%;
+
+    --popover: 215 25% 18%;
+    --popover-foreground: 28 40% 92%;
+
+    --primary: 15 85% 65%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 15 85% 75%;
+
+    --secondary: 215 50% 30%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 215 25% 22%;
+    --muted-foreground: 215 20% 60%;
+
+    --accent: 15 85% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 40%;
+    --destructive-foreground: 28 40% 92%;
+
+    --border: 215 25% 22%;
+    --input: 215 25% 22%;
+    --ring: 15 85% 65%;
+
+    --shadow-sm: 0 2px 8px hsl(0 0% 0% / 0.3);
+    --shadow-md: 0 4px 16px hsl(0 0% 0% / 0.4);
+    --shadow-lg: 0 8px 24px hsl(0 0% 0% / 0.5);
+    --shadow-xl: 0 12px 40px hsl(0 0% 0% / 0.6);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    background-image: 
+      radial-gradient(circle at 20% 80%, hsl(15 85% 60% / 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(15 85% 60% / 0.03) 0%, transparent 50%),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff6b4a' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/30 rounded-lg;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/50;
+  }
+}
+
+@layer utilities {
+  .font-script {
+    font-family: 'Caveat', cursive;
+  }
+
+  .font-serif {
+    font-family: 'Libre Baskerville', serif;
+  }
+
+  .text-coral {
+    color: hsl(var(--coral));
+  }
+
+  .text-navy {
+    color: hsl(var(--navy));
+  }
+
+  .bg-coral {
+    background-color: hsl(var(--coral));
+  }
+
+  .bg-navy {
+    background-color: hsl(var(--navy));
+  }
+
+  .bg-cream {
+    background-color: hsl(var(--cream));
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-subtle {
+    background: var(--gradient-subtle);
+  }
+
+  .shadow-smooth {
+    box-shadow: var(--shadow-md);
+  }
+
+  .shadow-smooth-lg {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-in {
+    animation: slideIn 1s ease-out forwards;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .polaroid-photo {
+    background: white;
+    padding: 12px;
+    padding-bottom: 48px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: rotate(-2deg);
+    transition: all 0.3s ease;
+  }
+
+  .polaroid-photo:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  .brush-stroke {
+    position: relative;
+  }
+
+  .brush-stroke::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -8px;
+    height: 12px;
+    background: url("data:image/svg+xml,%3Csvg width='100%25' height='12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,6 Q25,2 50,6 T100,6' stroke='%2315496d' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center;
+    background-size: 100% 100%;
+  }
+
+  .mandala-corner {
+    background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ff6b4a' stroke-width='1.5' opacity='0.3'%3E%3Ccircle cx='100' cy='100' r='80'/%3E%3Ccircle cx='100' cy='100' r='60'/%3E%3Ccircle cx='100' cy='100' r='40'/%3E%3Ccircle cx='100' cy='100' r='20'/%3E%3Cpath d='M100,20 L100,180 M20,100 L180,100 M45,45 L155,155 M155,45 L45,155'/%3E%3C/g%3E%3C/svg%3E");
+  }
+}
